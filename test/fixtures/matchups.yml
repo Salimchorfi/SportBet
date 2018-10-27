@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team1: MyString
+  team2: MyString
+  line1: MyString
+  line2: MyString
+  consensus: MyString
+
+two:
+  team1: MyString
+  team2: MyString
+  line1: MyString
+  line2: MyString
+  consensus: MyString
