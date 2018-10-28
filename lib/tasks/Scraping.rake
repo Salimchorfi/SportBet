@@ -7,19 +7,6 @@ namespace :db do
     require "Nokogiri"
     require "open-uri"
 
-    # doc = open("https://www.oddsshark.com/nfl/odds")
-    # parsed = Nokogiri::HTML(doc)
-    # teams = []
-
-    # parsed.search('.op-matchup-team-text').each do |element|
-    #   teams << element.text.strip
-    # end
-
-    # #Match up
-    # for i in 0..((teams.count / 2) -1)
-    #     puts "#{teams[i + i]} vs #{teams[i + 1 + i]}"
-    # end
-
     html = open("https://www.oddsshark.com/nfl/consensus-picks")
     doc = Nokogiri::HTML(html, nil, 'UTF-8')
 
@@ -38,7 +25,7 @@ namespace :db do
         short = cells.search('.name-short')
         price = cells.search('.price')
 
-        short = [long.text.strip, line.text.strip, price.text.strip]
+        short = [long.text.strip, line.text.strip, price.text.strip, consensus.text.strip]
         results << short
 
       end
@@ -46,12 +33,29 @@ namespace :db do
       i += 1
     end
 
-    p results
+    Matchup.delete_all
 
+    for i in 0..(results.count - 2)
 
+      # p results[i][0]
+      # p results[i + 1][0]
+      # p results[i][1]
+      # p results[i + 1][1]
+      # p results[i][2]
+      # p results[i + 1][2]
+      # p results[i][3]
 
+      matchup = Matchup.new(team1: results[i][0],
+                            team2: results[i + 1][0],
+                            line1: results[i][1],
+                            line2: results[i + 1][1],
+                            price1: results[i][2],
+                            price2: results[i + 1][2],
+                            consensus: results[i][3])
 
+      matchup.save
 
+    end
 
   end
 
