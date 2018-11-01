@@ -8,6 +8,8 @@ class CreateMatchups < ActiveRecord::Migration[5.0]
       t.string :price1
       t.string :price2
       t.string :consensus
+      t.string :betType
+      t.string :lineType
 
       t.timestamps
     end

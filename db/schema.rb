@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20181027220339) do
     t.string   "price1"
     t.string   "price2"
     t.string   "consensus"
+    t.string   "betType"
+    t.string   "lineType"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

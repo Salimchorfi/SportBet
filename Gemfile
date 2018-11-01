@@ -14,6 +14,10 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 # Nokogiri
 gem 'nokogiri'
+#Facebook messenger
+gem 'facebook-messenger'
+#Figaro
+gem 'figaro'
 # Httparty
 gem 'httparty'
 # Use SCSS for stylesheets
