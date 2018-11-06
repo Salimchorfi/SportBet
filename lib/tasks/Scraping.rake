@@ -23,6 +23,9 @@ namespace :db do
     tableSpread.search('tr').each do |tr|
       if i % 3 != 0
 
+        tr.matches?('.favoured')
+
+
         cells = tr.search('td')
 
         consensus = cells.search('.consensus')
@@ -30,8 +33,9 @@ namespace :db do
         line = cells.search('.line')
         short = cells.search('.name-short')
         price = cells.search('.price')
+        lineType = tr.matches?('.favoured')
 
-        short = [long.text.strip, line.text.strip, price.text.strip, consensus.text.strip]
+        short = [long.text.strip, line.text.strip, price.text.strip, consensus.text.strip.split(//).map {|x| x[/\d+/]}.compact.join("").to_i, lineType]
         spread << short
 
       end
@@ -52,7 +56,7 @@ namespace :db do
         price = cells.search('.price')
         lineType = cells.search('.ou-wrap-top')
 
-        short = [long.text.strip, line.text.strip, price.text.strip, consensus.text.strip, lineType.text.strip]
+        short = [long.text.strip, line.text.strip, price.text.strip, consensus.text.strip.split(//).map {|x| x[/\d+/]}.compact.join("").to_i, lineType.text.strip]
         total << short
 
       end
@@ -72,7 +76,8 @@ namespace :db do
                             price1: spread[i][2],
                             price2: spread[i + 1][2],
                             consensus: spread[i][3],
-                            betType: "spread")
+                            betType: "spread",
+                            lineType: spread[i][4])
 
       matchup.save
 

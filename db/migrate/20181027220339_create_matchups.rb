@@ -7,7 +7,7 @@ class CreateMatchups < ActiveRecord::Migration[5.0]
       t.string :line2
       t.string :price1
       t.string :price2
-      t.string :consensus
+      t.integer :consensus
       t.string :betType
       t.string :lineType
 

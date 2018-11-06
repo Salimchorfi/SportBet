@@ -20,6 +20,8 @@ gem 'facebook-messenger'
 gem 'figaro'
 # Httparty
 gem 'httparty'
+#Faraday
+gem 'faraday'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
