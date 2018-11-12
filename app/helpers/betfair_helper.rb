@@ -1,0 +1,2 @@
+module BetfairHelper
+end

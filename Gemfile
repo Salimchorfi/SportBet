@@ -15,13 +15,17 @@ gem 'puma', '~> 3.0'
 # Nokogiri
 gem 'nokogiri'
 #Facebook messenger
-gem 'facebook-messenger'
+gem 'facebook-messenger', '~> 1.1.1'
 #Figaro
 gem 'figaro'
 # Httparty
 gem 'httparty'
 #Faraday
 gem 'faraday'
+#Espn
+gem 'espn'
+#Betfair
+gem 'betfair-ng'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

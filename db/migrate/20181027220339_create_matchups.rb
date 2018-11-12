@@ -10,6 +10,8 @@ class CreateMatchups < ActiveRecord::Migration[5.0]
       t.integer :consensus
       t.string :betType
       t.string :lineType
+      t.string :team1P
+      t.string :team2P
 
       t.timestamps
     end

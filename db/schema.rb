@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20181027220339) do
     t.integer  "consensus"
     t.string   "betType"
     t.string   "lineType"
+    t.string   "team1P"
+    t.string   "team2P"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
